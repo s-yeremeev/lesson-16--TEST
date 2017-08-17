@@ -9,8 +9,28 @@ export default class PageContainer extends HTMLDivElement {
   constructor() {
     super()
     this.classList.add("container", "section")
+
+    const input = document.createElement("input")
+    input.type = "text"
+    input.id = "keyword"
+    this.appendChild(input)
+
+    const button = document.createElement("button")
+    button.innerHTML = "Send"
+    this.appendChild(button)
+
+    this.inputText = this.inputText.bind(this)
+    button.addEventListener("click", this.inputText)
+    
+
     window.addEventListener("scroll", this.checkScroll)
   }
+
+  inputText(event) {
+    const checkText = document.getElementById("keyword")
+    const text = checkText.value
+    localStorage.setItem("inputText", text)
+}
 
   addResponse() {    
     for (let i = 1; i <= 3; ++i){ 
