@@ -1,22 +1,20 @@
-export const fetchImg = async () => {  
+/**
+ * async function {fetchImg} to retrieve random images from the server
+ */
+export const fetchImg = async () => { 
    try {  
         const inputText = localStorage.getItem("inputText")
+        let url
+        const DEFAULT_URL = "https://source.unsplash.com/random"
         if (
             inputText !== null 
             && inputText !==""
         ) {
-            let url = "https://source.unsplash.com/random/?" + inputText
-            return url
+            url = DEFAULT_URL + "/?" + inputText
         } else {
-            let url = "https://source.unsplash.com/random"
-            return url
+            url = DEFAULT_URL
         }
-        const response = await fetch(url, {
-                     method: 'GET',
-                     mode: "cors",
-                     cache: "default",
-                      
-                 })
+        const response = await fetch(url, { method: 'GET' })
                   const blob = await response.blob()
                   const src = URL.createObjectURL(blob)
                   return src

@@ -1,10 +1,15 @@
 import "document-register-element"
 
+/**
+ * @class LineComponent
+ * Creating new object {line} for 3 image
+ * @return {LineComponent}
+ */
 export default class LineComponent extends HTMLDivElement {
   static displayName = "line-component"
   static extends = "div"
 
-  constructor(props) {
+  constructor() {
     super()
   }
 

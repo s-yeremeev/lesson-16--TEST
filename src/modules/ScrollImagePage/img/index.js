@@ -1,6 +1,11 @@
 import "document-register-element"
 import { fetchImg } from "./imageRes"
 
+/**
+ * @class ImageComponent
+ * Creating new object with a image
+ * @return {ImageComponent}
+ */
 export default class ImageComponent extends HTMLDivElement {
   static displayName = "image-component"
   static extends = "div"
