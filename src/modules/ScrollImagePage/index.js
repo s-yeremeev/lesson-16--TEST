@@ -20,13 +20,13 @@ export default class PageContainer extends HTMLDivElement {
     this.appendChild(button)
 
     this.inputText = this.inputText.bind(this)
-    button.addEventListener("click", this.inputText)
-    
+    button.addEventListener("click", this.inputText)    
 
     window.addEventListener("scroll", this.checkScroll)
   }
 
   inputText(event) {
+    window.location.reload()
     const checkText = document.getElementById("keyword")
     const text = checkText.value
     localStorage.setItem("inputText", text)

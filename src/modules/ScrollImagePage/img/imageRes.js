@@ -1,18 +1,21 @@
 export const fetchImg = async () => {  
    try {  
         const inputText = localStorage.getItem("inputText")
-        if(inputText !== null) {
-            const url = 'https://source.unsplash.com/random/?' + inputText
+        if (
+            inputText !== null 
+            && inputText !==""
+        ) {
+            let url = "https://source.unsplash.com/random/?" + inputText
             return url
         } else {
-            const url = 'https://source.unsplash.com/random'
+            let url = "https://source.unsplash.com/random"
             return url
         }
-        console.log(url)
         const response = await fetch(url, {
                      method: 'GET',
                      mode: "cors",
-                     cache: "default"
+                     cache: "default",
+                      
                  })
                   const blob = await response.blob()
                   const src = URL.createObjectURL(blob)

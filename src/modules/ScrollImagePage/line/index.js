@@ -11,6 +11,7 @@ export default class LineComponent extends HTMLDivElement {
   newLineAdd(props) {
     const imgs = props.imgs
     this.classList.add("columns")
+    
     imgs.forEach(img => this.appendChild(img))
     return this
   }
